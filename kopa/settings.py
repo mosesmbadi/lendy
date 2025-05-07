@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "mbadi.pythonanywhere.com",
-    "127.0.0.1"
+    "*"
     ]
 
 
