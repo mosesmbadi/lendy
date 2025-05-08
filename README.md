@@ -3,7 +3,7 @@
 This is a Django-based Loan Management System designed to handle loan applications, scoring engine integration, and core banking system interactions. The system is built using Django Rest Framework (DRF) for the API layer and Celery for asynchronous task management.
 It includes a SOAP client for interacting with external services and is structured to allow for easy integration with other systems.
 
----
+
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ It includes a SOAP client for interacting with external services and is structur
   - [Without Docker](#without-docker)
 - [License](#license)
 
----
+
 ## Features
 - **Loan Application Management**: Create, update, and manage loan applications.
 - **Scoring Engine Integration**: Interface with a scoring engine to evaluate loan applications.
