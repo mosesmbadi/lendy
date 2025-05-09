@@ -4,6 +4,8 @@ from django.db import models
 
 import uuid
 
+from utils.choices import LoanStatus
+
 class Customer(models.Model):
     customer_number = models.CharField(max_length=255)
     reg_id = models.UUIDField(unique=True, default=uuid.uuid4, editable=False)
@@ -12,7 +14,11 @@ class Customer(models.Model):
 class Loan(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=50, default='PENDING')
+    status = models.CharField(
+        max_length=50,
+        choices=LoanStatus.choices,
+        default=LoanStatus.PENDING
+    )
     loan_score = models.IntegerField(null=True, blank=True)
     limit_amount = models.DecimalField(
     max_digits=10, decimal_places=2, null=True, blank=True
