@@ -12,6 +12,11 @@ It includes a SOAP client for interacting with external services and is structur
 - **DRF Serializers**: Use Django Rest Framework serializers for data validation and transformation.
 - **Unit Tests**: Comprehensive unit tests for all modules to ensure reliability and maintainability.
 
+## Technologies Used
+- Python
+- PostgreSQL
+- Django Rest Framework (DRF)
+
 ## System Architecture
 The system is designed with a modular architecture to separate concerns and facilitate easier maintenance and scalability. The main components include:
 The project is broken down into the modules below:
