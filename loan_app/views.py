@@ -1,12 +1,13 @@
 from rest_framework import viewsets, views, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import Customer, Loan
+from .models import Customer, Loan, Repayment
 from .serializers import (
 CustomerSerializer,
 LoanRequestSerializer,
 LoanSerializer,
 TransactionDataSerializer,
+RepaymentSerializer,
 )
 from .services import (
     CoreBankingService,
@@ -16,6 +17,7 @@ from .services import (
     )
 from rest_framework.decorators import action
 from rest_framework import status
+from rest_framework.viewsets import ModelViewSet
 
 
 
@@ -71,3 +73,9 @@ class TransactionDataView(views.APIView):
         return Response(
         {'message': 'Transaction data received'}, status=status.HTTP_200_OK
         )
+        
+        
+class RepaymentViewSet(ModelViewSet):
+    queryset = Repayment.objects.all()
+    serializer_class = RepaymentSerializer
+    permission_classes = [IsAuthenticated]

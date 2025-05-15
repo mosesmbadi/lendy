@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Customer, Loan
+from .models import Customer, Loan, Repayment
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -94,3 +94,9 @@ class TransactionDataSerializer(serializers.Serializer):
     overthecounterwithdrawalsNumber = serializers.IntegerField()
     transactionValue = serializers.FloatField()
     updatedAt = serializers.IntegerField()
+    
+
+class RepaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Repayment
+        fields = '__all__'
