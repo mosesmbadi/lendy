@@ -133,7 +133,6 @@ Run the server
 ```bash
 python manage.py runserver
 ```
-
 ## Contributing guidelines
 
 We welcome contributions!
@@ -145,4 +144,4 @@ If you'd like to contribute:
 4. Push to your branch.
 5. Create a pull request describing your changes.
 
-Thank you for your support!
+Thank you for your support! 
