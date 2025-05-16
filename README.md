@@ -15,6 +15,7 @@ It includes a SOAP client for interacting with external services and is structur
 ## System Architecture
 The system is designed with a modular architecture to separate concerns and facilitate easier maintenance and scalability. The main components include:
 The project is broken down into the modules below:
+```
 kopa/
     ├── loan_app/          ====> Main application for loan management
     │   ├── models.py      ====> Database models
@@ -34,17 +35,18 @@ kopa/
     │   ├── urls.py       ====> Project-level URL routing
     │   └── celery.py     ====> Celery configuration
     └── manage.py         ====> Django management script
-
+```
 
 ## User Journey
-- Bank sends customer pin to register
-- Bank submits loan request
-- LMS queries score
-- LMS Registers with Scoring platform
-- Scoring Platform registers with LMS
-- Scoring Platform queries transaction data
+1. Bank sends customer pin to register
+2. Bank submits loan request
+3. LMS queries score
+4. LMS Registers with Scoring platform
+5. Scoring Platform registers with LMS
+6. Scoring Platform queries transaction data
 
-### Bank sends customer pin to register
+### 1.  Bank sends customer pin to register
+```
 curl --request POST \
   --url http://127.0.0.1:8000/customers/ \
   --header 'Authorization: Bearer {access_token}' \
@@ -56,8 +58,10 @@ curl --request POST \
  "address": "123 Main St",
  "other_kyc_data": "..."
 }'
+```
 
-### Bank submits loan request
+### 2. Bank submits loan request
+```
 curl --request POST \
   --url http://127.0.0.1:8000/loans/ \
   --header 'Authorization: Bearer {access_token}' \
@@ -67,15 +71,15 @@ curl --request POST \
  "customer_number": "234774784",
  "amount": 2000.00
 }'
-
-  #### LMS queries KYC
+```
+  ### 3. LMS queries KYC
   core_banking_service = CoreBankingService()
   customer_data = core_banking_service.get_customer_kyc(customer_number)
-  ### Loan is Created
-  ### Calls scoring API 
-  --> The loan object is updated with the scoring token
-  ### Asynchronous Scoring
-  --> A Celery task is triggered to fetch the loan score and limit
+  ### 4. Loan is Created
+  ### 5. Calls scoring API 
+  &rarr; The loan object is updated with the scoring token
+  ### 6. Asynchronous Scoring
+  &rarr; A Celery task is triggered to fetch the loan score and limit
 
 
 
