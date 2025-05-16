@@ -77,6 +77,35 @@ curl --request POST \
   ### Asynchronous Scoring
   --> A Celery task is triggered to fetch the loan score and limit
 
+  ## Authentication Required
+
+To access the `/customers/` endpoint, you must be authenticated using a token.
+
+### Step-by-step:
+
+1. First, register or log in using the API:
+   - `POST /api/register/` (or similar)
+   - `POST /api/token/` with your username and password
+
+2. You’ll receive an access token in the response.
+
+3. Use this token to authenticate in your API calls:
+
+   - Example using `curl`:
+     ```bash
+     curl -H "Authorization: Bearer <your_token_here>" http://127.0.0.1:8000/customers/
+     ```
+
+4. If you're using the browsable DRF interface, click the top-right **Login** link and paste your token.
+
+💡 Make sure token authentication is enabled in your Django settings:
+```python
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
 
 
 ## Potential Issues
