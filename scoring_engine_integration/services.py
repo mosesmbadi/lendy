@@ -9,7 +9,9 @@ from celery import shared_task
 
 
 class ScoringEngineService:
+      # The base URL for the scoring engine service
     SCORING_ENGINE_BASE_URL = 'rabbitmq:2323'
+      #  Call Scoring Engine - Step 1
     CLIENT_BASE_URL = 'https://scoringtest.credable.io/api/v1/client'
 
 
