@@ -162,3 +162,15 @@ Run the server
 ```bash
 python manage.py runserver
 ```
+## Contributing guidelines
+
+We welcome contributions!
+
+If you'd like to contribute:
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes.
+4. Push to your branch.
+5. Create a pull request describing your changes.
+
+Thank you for your support! 
