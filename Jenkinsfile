@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME   = "lendy-app"
         SECRET_KEY   = credentials('DJANGO_SECRET_KEY')  // Assuming you have a Django Secret Key stored as a Jenkins secret
         COMPOSE_FILE = "lendy/docker-compose.yml"
-        DOCKER_HUB_REPO = 'jymo/lendy-app' // Docker Hub repository
+        DOCKER_HUB_REPO = 'victorgptea/v1ct0rg' // Docker Hub repository
     }
 
     stages {
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "Cloning repository..."
                 dir('lendy') {
-                    git branch: 'main', url: 'https://github.com/mosesmbadi/lendy.git'
+                    git branch: 'main', url: 'https://github.com/victorgpt0/lendy.git'
                 }
             }
         }
